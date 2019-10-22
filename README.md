@@ -9,3 +9,7 @@ All the contents of the docx file(including paragraphs, tables and images) are s
 
 
 Similarly, if a table is encountered in the document, the table_id column in combined_df dataframe gets filled up. 
+
+
+![combined_df]
+(https://github.com/kmrambo/Python-docx-Reading-paragraphs-tables-and-images-in-document-order-/blob/master/images/combined_df.png)
