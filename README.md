@@ -3,16 +3,18 @@
 python-docx is a Python library for creating and updating Microsoft Word (.docx) files.
 The Python-docx package cannot read paragraphs, tables and images in document order. It can only render all the paragraphs at once or all tables at once or all images at once. Here, I provide a way in which paragraphs, tables and images present in a docx file can be read in document order into a dataframe in python.
 
-While running this code with any docx file as input, this code genertes 3 dataframes namely combined_df, table_list ( a list basically) and image_df.
+The code is present inside the file named "Para_table_image_extraction.py". While running this code with any docx file as input, this code genertes 3 dataframes namely combined_df, table_list ( a list basically) and image_df.
 
 All the contents of the docx file(including paragraphs, tables and images) are stored in a python dataframe called combined_df. If an image is present after a paragraph in the document, a reference to the image will be stored in the combined_df dataframe, but not the actual image. You will have to refer the image index in this reference from combined_df and retrieve the image data from a separate dataframe called image_df which stores the image_index and the corresponding base64 encoded image data of each and every image that is present in the document.
 
 
 
-
 Similarly, if a table is encountered in the document, the table_id column in combined_df dataframe gets filled up. And you will have to retrieve the corresponding table that is relevant to the table_id from table_list.
 
-Below is a sample of combined_df dataframe on a sample docx file.
+I have illustrated this code on the following word document(docx):
+![docx document](/images/snaphot_of_docx_document.png)
+
+Below is a sample of combined_df dataframe that is created based on the above docx file.
 
 ![combined_df](/images/combined_df.png)
 
@@ -34,3 +36,5 @@ Table objects are represented as "<docx.table.Table object at 0x1020f1160>" whic
 
 ![table_list](/images/table_list.png)
 
+
+I have not included the code to extract the images and tables from image_df and table_list using their unique identifiers from combined_df. The reason I have not done this is because the use case might vary from person to person. You can extract them in your own way and do whatever successive operation you wish to. 
