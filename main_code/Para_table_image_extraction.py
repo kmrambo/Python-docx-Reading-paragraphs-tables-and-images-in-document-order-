@@ -27,6 +27,12 @@ import csv
 import base64
 
 
+#Load the docx file into document object. You can input your own docx file in this step by changing the input path below:
+document = Document('/Users/karthick/Desktop/iclouddrive/Work/QA/microchip datasheets/22100F-converted-latest.docx')
+
+
+
+
 ##This function extracts the tables and paragraphs from the document object
 def iter_block_items(parent):
     """
@@ -83,9 +89,6 @@ def read_docx_tables(tab_id=None, **kwargs):
             raise
 
 
-
-#Load the docx file into document object. You can input your own docx file in this step by changing the input path below:
-document = Document('/Users/karthick/Desktop/iclouddrive/Work/QA/microchip datasheets/22100F-converted-latest.docx')
 
 
 combined_df = pd.DataFrame(columns=['para_text','table_id','style'])
