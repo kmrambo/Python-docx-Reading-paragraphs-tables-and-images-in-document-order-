@@ -5,7 +5,8 @@ The Python-docx package cannot read paragraphs, tables and images in document or
 
 The code is present inside the file named "Para_table_image_extraction.py". While running this code with any docx file as input, this code genertes 3 dataframes namely combined_df, table_list ( a list basically) and image_df.
 
-All the contents of the docx file(including paragraphs, tables and images) are stored in a python dataframe called combined_df. If an image is present after a paragraph in the document, a reference to the image will be stored in the combined_df dataframe, but not the actual image. You will have to refer the image index in this reference from combined_df and retrieve the image data from a separate dataframe called image_df which stores the image_index and the corresponding base64 encoded image data of each and every image that is present in the document.
+All the contents of the docx file(including paragraphs, tables and images) are stored in a python dataframe called combined_df. 
+If an image is present after a paragraph in the document, a reference to the image will be stored in the combined_df dataframe, but not the actual image. You will have to refer the image index in this reference from combined_df and retrieve the image data from a separate dataframe called image_df which stores the image_index and the corresponding base64 encoded image data of each and every image that is present in the document.
 
 
 
@@ -26,13 +27,13 @@ In the above dataframe:
 You should note that images and tables are not stored as such inside combined_df dataframe. A reference to those objects are only stored in combined_df. Which means for every image id or table id present in combined_df, you will have to take either the image id or table id from combined_df and refer those ids from image_df for image data and table_list for table data.
 
 Image files are represented in the following notation:
-"Document_Imagefile/image1.png/rId7/0" 
-which denotes that the reference is actually an image file which has "image1.png" as image name and "rId7" as the unique id or identifier for the image and "0" for image index to be referred in image_df.
+"**Document_Imagefile/image1.png/rId7/0**" in combined_df
+which denotes that the reference is actually an image file which has "**image1.png**" as image name and "**rId7**" as the unique id or identifier for the image and "**0**" for image index to be referred in image_df.
 
 ![image_df](/images/image_df.png)
 
 
-Table objects are represented as "<docx.table.Table object at 0x1020f1160>" which denotes that a table is present at that location with the corresponding table_id. You can refer to this table_id in table_list's index to fetch the relevant table as a dataframe. table_list contains a list of all tables stored in dataframe format.
+Table objects are represented as "**<docx.table.Table object at 0x1020f1160>**" which denotes that a table is present at that location with the corresponding table_id. You can refer to this table_id in table_list's index to fetch the relevant table as a dataframe. table_list contains a list of all tables stored in dataframe format.
 
 ![table_list](/images/table_list.png)
 
