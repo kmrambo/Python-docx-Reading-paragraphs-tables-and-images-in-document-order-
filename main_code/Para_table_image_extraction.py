@@ -90,10 +90,16 @@ def read_docx_tables(tab_id=None, **kwargs):
 
 
 
-
+#The combined_df dataframe will store all the content in document order including images, tables and paragraphs.
+#If the content is an image or a table, it has to be referenced from image_df for images and table_list for tables using the corresponding image or table id that is stored in combined_df
+#And if the content is paragraph, the paragraph text will be stored in combined_df
 combined_df = pd.DataFrame(columns=['para_text','table_id','style'])
 table_mod = pd.DataFrame(columns=['string_value','table_id'])
+
+#The image_df will consist of base64 encoded image data of all the images in the document
 image_df = pd.DataFrame(columns=['image_index','image_rID','image_filename','image_base64_string'])
+
+#The table_list is a list consisting of all the tables in the document
 table_list=[]
 xml_list=[]
 
