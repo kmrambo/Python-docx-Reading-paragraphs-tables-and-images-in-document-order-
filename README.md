@@ -3,7 +3,7 @@
 python-docx is a Python library for creating and manipulating Microsoft Word (.docx) files.
 The Python-docx package cannot read paragraphs, tables and images altogther in document order. In document order, either it can only render all the paragraphs at once or all tables at once or all images at once. Here, I provide a way in which paragraphs, tables and images present in a docx file can be read in document order into a dataframe in python.
 
-The code is present inside the file named "Para_table_image_extraction.py". While running this code with any docx file as input, this code genertes 3 dataframes namely combined_df, table_list ( a list basically) and image_df.
+The code is present inside the file named "Para_table_image_extraction.py". While running this code with any docx file as input, this code genertes 3 dataframes namely ```combined_df```, ```table_list``` ( a list basically) and ```image_df```.
 
 All the contents of the docx file(including paragraphs, tables and images) are stored in a python dataframe called combined_df. 
 If an image is present after a paragraph in the document, a reference to the image will be stored in the combined_df dataframe, but not the actual image. You will have to refer the image index in this reference from combined_df and retrieve the image data from a separate dataframe called image_df which stores the image_index and the corresponding base64 encoded image data of each and every image that is present in the document.
